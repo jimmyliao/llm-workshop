@@ -1,0 +1,5 @@
+ipykernel
+google-cloud-aiplatform
+# pandas
+# numpy
+# shortuuid
