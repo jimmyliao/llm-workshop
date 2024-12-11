@@ -4,9 +4,17 @@ from vertexai.generative_models import GenerativeModel, Part, SafetySetting
 
 
 def generate():
-    vertexai.init(project="gcp-xxx", location="us-central1")
+    import google.auth.credentials
+    from google.oauth2 import service_account
+    credentials = service_account.Credentials.from_service_account_file(
+        "path/to/your/service_account_key.json"
+    )
+
+    vertexai.init(project="gcp-xxx", location="us-central1", credentials=credentials)
+
     model = GenerativeModel(
-        "gemini-1.5-flash-002",
+        # "gemini-1.5-flash-002",
+        "gemini-2.0-flash-exp",
     )
     responses = model.generate_content(
         [text1],
